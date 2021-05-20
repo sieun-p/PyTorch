@@ -65,9 +65,9 @@ X_test = torch.Tensor(X_test)
 Y_test = torch.Tensor(Y_test)
 Y_test = F.one_hot(Y_test.to(torch.int64)-1, 4)
 
-X_train      = X_train.reshape(X_train.shape[0], chans, samples, kernels)
-X_validate   = X_validate.reshape(X_validate.shape[0], chans, samples, kernels)
-X_test       = X_test.reshape(X_test.shape[0], chans, samples, kernels)
+X_train = X_train.reshape(X_train.shape[0], kernels, chans, samples)
+X_validate = X_validate.reshape(X_validate.shape[0], kernels, chans, samples)
+X_test = X_test.reshape(X_test.shape[0], kernels, chans, samples)
    
 print('X_train shape:', X_train.shape)
 print(X_train.shape[0], 'train samples')
