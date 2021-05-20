@@ -72,3 +72,12 @@ X_test       = X_test.reshape(X_test.shape[0], chans, samples, kernels)
 print('X_train shape:', X_train.shape)
 print(X_train.shape[0], 'train samples')
 print(X_test.shape[0], 'test samples')
+
+trn = data_utils.TensorDataset(X_train, Y_train)
+trn_loader = data_utils.DataLoader(trn, batch_size=16, shuffle=True)
+
+val = data_utils.TensorDataset(X_validate, Y_validate)
+val_loader = data_utils.DataLoader(val, batch_size=16, shuffle=True)
+
+test = data_utils.TensorDataset(X_test, Y_test)
+test_loader = data_utils.DataLoader(test, batch_size=16, shuffle=True)
